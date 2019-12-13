@@ -18,9 +18,10 @@ export class MovieEditor extends React.Component {
   render() {
     return<>
     {this.state.redirect && <Redirect to="/" />}
-
+    <div class="shae-container">
+    <div class="image"></div>
+    <h1>Star Wars: The Saga Movie Editor &hearts;</h1>
     <form className="container">
-                <h1>Movie Editor</h1>
                 <div><Link to="/">Back to Dashboard</Link></div>
                 <div className="form-group">
                     <label htmlFor="movieId">Movie Id</label>
@@ -65,11 +66,16 @@ export class MovieEditor extends React.Component {
                 <div>
                     <button type="button" className="btn btn-primary btn-lg btn-block"
                     onClick={e => this.onSubmit()}>
-                        Save
+                        Add!
+                    </button>
+                    <button type="button" className="btn btn-primary btn-lg btn-block"
+                    onClick={e => this.reset()}>
+                        Reset
                     </button>
                 </div>
 
             </form>
+            </div>
         </>;
     }
 
@@ -81,13 +87,6 @@ export class MovieEditor extends React.Component {
         }
     }
 
-    // onPhoneAdded(phone) {
-    //     this.setState(prevState => {
-    //         prevState.phoneNumbers.push(phone);
-    //         return prevState;
-    //     });
-    // }
-
     onSubmit() {
         var onSaveComplete = () => this.setState({redirect:true})
 
@@ -97,8 +96,21 @@ export class MovieEditor extends React.Component {
             } else {
                 this.movieRepository.addMovie(this.state.movieId, this.state)
                 .then(onSaveComplete);
-                // DEBUG: 
+                // DEBUG:
             }
+        }
+
+        reset() {
+          this.setState(
+            {
+              movieId: "",
+              title: "",
+              year: "",
+              director: "",
+              producer: "",
+              tomatoRating: ""
+            }
+          )
         }
 
 }

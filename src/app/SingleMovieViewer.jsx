@@ -1,28 +1,26 @@
 import React from 'react';
 import {MovieRepository} from '../api/MovieRepository';
-import {SingleMovieList} from './SingleMovieList';
 import {Redirect, Link} from 'react-router-dom';
 
 export class SingleMovieViewer extends React.Component {
 
-  constructor(movieId) {
-    this.movieId = movieId;
-  }
-
   movieRepository = new MovieRepository();
 
   state = {
-    movies: []
+    movieId: "",
+    title: "",
+    year: "",
+    director: "",
+    producer: "",
+    tomatoRating: ""
   }
 
   render() {
     return<>
-
-    <div class="container">
-    <div>
     <div class="shae-container">
     <div class="image"></div>
     <h1>Star Wars: The Saga &hearts;</h1>
+      <div><Link to="/">Back to Dashboard</Link></div>
       <table class="center">
           <thead>
               <tr>
@@ -34,19 +32,15 @@ export class SingleMovieViewer extends React.Component {
               </tr>
           </thead>
           <tbody>
-          {this.state.map(movie =>
-                  <tr key={movie.movieId}>
-                      <td>{movie.title}</td>
-                      <td>{movie.year}</td>
-                      <td>{movie.director}</td>
-                      <td>{movie.producer}</td>
-                      <td>{movie.tomatoRating}</td>
+                <tr>
+                      <td>{this.state.title}</td>
+                      <td>{this.state.year}</td>
+                      <td>{this.state.director}</td>
+                      <td>{this.state.producer}</td>
+                      <td>{this.state.tomatoRating}</td>
                   </tr>
-                )}
           </tbody>
       </table>
-      </div>
-    </div>
       </div>
         </>
 
@@ -54,17 +48,7 @@ export class SingleMovieViewer extends React.Component {
 
     componentDidMount() {
           let movieId = this.props.match.params.movieId;
-        if (movieId) {
             this.movieRepository.getMovieById(movieId)
-                .then(movie => this.setState(movie));
+          .then(movie => this.setState(movie));
         }
     }
-
-    // componentDidMount() {
-    //   this.movieRepository.getAllMovies()
-    //   .then(movies =>
-    //   this.setState({
-    //     movies: movies
-    //   }));
-    // }
-  }

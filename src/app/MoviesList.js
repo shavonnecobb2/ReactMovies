@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export const MoviesList = props => {
 
@@ -19,7 +20,7 @@ return <>
       <tbody>
       {props.movies.map(movie =>
               <tr key={movie.movieId}>
-                  <td>{movie.title}</td>
+                  <td><Link to={`/movies/${movie.movieId}`}>{movie.title}</Link></td>
                   <td>{movie.year}</td>
                   <td>{movie.director}</td>
                   <td>{movie.producer}</td>
@@ -28,6 +29,7 @@ return <>
             )}
       </tbody>
   </table>
+    <div>Would you like to <Link to="/add">add</Link> to the greatest list of all time?</div>
   </div>
   </>
 }
