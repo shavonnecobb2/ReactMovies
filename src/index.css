@@ -1,13 +1,36 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.shae-container {
+    text-align: center;
+    font-family: arial;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+font-size: 70px;
+margin-top: 20px;
+margin-bottom: 20px;
 }
+.shae-table {
+text-align: center;
+}
+
+.image {
+      background-image: url("https://www.moviedash.com/wp-content/uploads/2018/05/7773769005_star-wars.jpg");
+     background-position: center;
+     background-attachment: fixed;
+      height: 500px;
+      width: max;
+      opacity: .9;
+}
+
+table {
+    border: solid 2px;
+    margin: 70px;
+}
+
+ table.center {
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  td, th {
+  padding: 10px;
+  }
