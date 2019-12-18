@@ -1,80 +1,82 @@
 import React from 'react';
-import {MovieRepository} from '../api/MovieRepository';
-import {Redirect, Link} from 'react-router-dom';
+import { MovieRepository } from '../api/MovieRepository';
+import { Redirect, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export class MovieEditor extends React.Component {
 
-  movieRepository = new MovieRepository();
+    movieRepository = new MovieRepository();
 
-  state = {
-    movieId: "",
-    title: "",
-    year: "",
-    director: "",
-    producer: "",
-    tomatoRating: ""
-  }
+    state = {
+        movieId: "",
+        title: "",
+        year: "",
+        director: "",
+        producer: "",
+        tomatoRating: ""
+    }
 
-  render() {
-    return<>
-    {this.state.redirect && <Redirect to="/" />}
-    <div class="shae-container">
-    <div class="image"></div>
-    <h1>Star Wars: The Saga Movie Editor &hearts;</h1>
-    <form className="container">
-                <div><Link to="/">Back to Dashboard</Link></div>
-                <div className="form-group">
-                    <label htmlFor="movieId">Movie Id</label>
-                    <input type="text" id="movieId" name="movieId" className="form-control"
-                        value={this.state.movieId} onChange={e => this.setState({ movieId: e.target.value })} />
+    render() {
+        return <>
+            {this.state.redirect && <Redirect to="/" />}
+            <div className="shae-container">
+                <div className="image"></div>
+                <div className="topbar">
+                    <h1>Star Wars: The Movie Editor</h1>
+                    <FontAwesomeIcon icon={['fab', 'jedi-order']} id="jedi" />
                 </div>
+                <div className="shae">
+                    <form className="form-container">
+                        <div className="link"><Link to="/">Back to Dashboard</Link></div>
+                        <div className="form-group">
+                            <label htmlFor="movieId">Movie Id </label><br></br>
+                            <input type="text" id="movieId" name="movieId" className="form-control"
+                                value={this.state.movieId} onChange={e => this.setState({ movieId: e.target.value })} />
+                        </div>
 
-                <div className="form-group">
-                    <label htmlFor="title">Title</label>
-                    <input type="text" id="title" name="title" className="form-control"
-                        value={this.state.title} onChange={e => this.setState({ title: e.target.value })} />
+                        <div className="form-group">
+                            <label htmlFor="title">Title </label><br></br>
+                            <input type="text" id="title" name="title" className="form-control"
+                                value={this.state.title} onChange={e => this.setState({ title: e.target.value })} />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="year">Year </label><br></br>
+                            <input type="text" id="year" name="year" className="form-control"
+                                value={this.state.year} onChange={e => this.setState({ year: e.target.value })} />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="director">Director </label><br></br>
+                            <input type="text" id="director" name="director" className="form-control"
+                                value={this.state.director} onChange={e => this.setState({ director: e.target.value })} />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="producer">Producer </label><br></br>
+                            <input type="text" id="producer" name="producer" className="form-control"
+                                value={this.state.producer} onChange={e => this.setState({ producer: e.target.value })} />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="tomatoRating">Tomato Rating </label><br></br>
+                            <input type="text" id="tomatoRating" name="tomatoRating" className="form-control"
+                                value={this.state.tomatoRating} onChange={e => this.setState({ tomatoRating: e.target.value })} />
+                        </div>
+
+                        <div className="shae-button">
+                            <button type="button" className="save-btn"
+                                onClick={e => this.onSubmit()}>
+                                Submit
+                            </button>
+                            <button type="button" className="reset-btn"
+                                onClick={e => this.reset()}>
+                                Reset
+                            </button>
+                        </div>
+
+                    </form>
                 </div>
-
-                <div className="form-group">
-                    <label htmlFor="year">
-                        <input type="text" id="year" name="year" className="form-control"
-                            checked={this.state.year} onChange={e => this.setState({ year: e.target.value })} />
-                    </label>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="director">
-                        <input type="text" id="director" name="director" className="form-control"
-                            checked={this.state.director} onChange={e => this.setState({ director: e.target.value })} />
-                    </label>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="producer">
-                        <input type="text" id="producer" name="producer" className="form-control"
-                            checked={this.state.producer} onChange={e => this.setState({ producer: e.target.value })} />
-                    </label>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="tomatoRating">
-                        <input type="text" id="tomatoRating" name="tomatoRating" className="form-control"
-                            checked={this.state.tomatoRating} onChange={e => this.setState({ tomatoRating: e.target.value })} />
-                    </label>
-                </div>
-
-                <div>
-                    <button type="button" className="btn btn-primary btn-lg btn-block"
-                    onClick={e => this.onSubmit()}>
-                        Add!
-                    </button>
-                    <button type="button" className="btn btn-primary btn-lg btn-block"
-                    onClick={e => this.reset()}>
-                        Reset
-                    </button>
-                </div>
-
-            </form>
             </div>
         </>;
     }
@@ -88,29 +90,28 @@ export class MovieEditor extends React.Component {
     }
 
     onSubmit() {
-        var onSaveComplete = () => this.setState({redirect:true})
+        var onSaveComplete = () => this.setState({ redirect: true })
 
-            if (this.state.movieId) {
-                this.movieRepository.updateMovie(this.state.movieId, this.state)
+        if (this.state.movieId) {
+            this.movieRepository.updateMovie(this.state.movieId, this.state)
                 .then(onSaveComplete);
-            } else {
-                this.movieRepository.addMovie(this.state.movieId, this.state)
+        } else {
+            this.movieRepository.addMovie(this.state.movieId, this.state)
                 .then(onSaveComplete);
-                // DEBUG:
-            }
         }
+    }
 
-        reset() {
-          this.setState(
+    reset() {
+        this.setState(
             {
-              movieId: "",
-              title: "",
-              year: "",
-              director: "",
-              producer: "",
-              tomatoRating: ""
+                movieId: "",
+                title: "",
+                year: "",
+                director: "",
+                producer: "",
+                tomatoRating: ""
             }
-          )
-        }
+        )
+    }
 
 }

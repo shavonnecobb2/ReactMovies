@@ -1,0 +1,120 @@
+.shae-container {
+    margin: 40px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 120px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: tahoma;
+}
+
+h2 {
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.shae-table {
+    text-align: center;
+}
+
+.image {
+    background-image: url("https://www.moviedash.com/wp-content/uploads/2018/05/7773769005_star-wars.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    height: 500px;
+    width: max;
+    opacity: .9;
+}
+
+#jedi {
+    font-size: 200px;
+}
+
+table {
+    border: solid 2px;
+    margin: 70px;
+    padding: 30px;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td, th {
+    padding: 20px;
+}
+
+th {
+    font-size: 18px;
+}
+
+.add {
+    margin-top: 30px;
+    margin-bottom: 70px;
+    font-size: 25px;
+}
+
+.text-section {
+    font-family: arial;
+    font-size: 16px;
+}
+
+.form-group {
+    margin: 30px;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.link {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.dashboard {
+    margin: 60px 0;
+    font-size: 25px;
+}
+
+input {
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+    font-size: 17px;
+}
+
+button {
+    width: 200px;
+}
+
+.shae-button {
+    text-align: center;
+}
+
+.save-btn {
+    margin: 20px;
+    background-color: black;
+    opacity: .7;
+    color: white;
+    padding: 10px;
+}
+
+.reset-btn {
+    margin: 20px;
+    background-color: black;
+    opacity: .7;
+    color: white;
+    padding: 10px;
+}
+
+.delete-btn {
+    margin: 20px;
+    background-color: black;
+    opacity: .7;
+    color: white;
+    padding: 10px;
+}

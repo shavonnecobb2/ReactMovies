@@ -13,7 +13,7 @@ export class MoviesDashboard extends React.Component {
 
     render() {
         return <>
-          <div class="container">
+          <div className="container">
           <div>
           <MoviesList movies ={this.state.movies}/>
           </div>
